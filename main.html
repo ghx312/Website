@@ -7,8 +7,8 @@
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Fredoka', monospace;
-      background: url('https://media.makeagif.com/media/QIoQws.gif') no-repeat center center fixed;
+      font-family: 'Courier New', monospace;
+      background: url('https://i.gifer.com/1amw.gif') no-repeat center center fixed;
       background-size: cover;
       color: #00ffcc;
       height: 100%;
@@ -21,27 +21,32 @@
       flex-direction: column;
     }
 
-    /* Horizontal Header - Left Aligned */
+    /* Horizontal Header */
     .header {
       display: flex;
-      justify-content: flex-start; /* Align to left */
+      justify-content: flex-start;
       background-color: #111;
-      border-bottom: 1px solid #00ffff55;
-      padding: 15px 0;
-      padding-left: 40px; /* Margin from left edge */
+      border-bottom: 3px solid #00ffff55;
+      padding: 0 40px;
     }
 
     .tab {
-      margin-right: 25px;
+      padding: 15px 20px;
       font-size: 16px;
       font-weight: bold;
       color: #00ffff;
       cursor: pointer;
       transition: text-shadow 0.2s ease;
+      border-bottom: 3px solid transparent; /* space for highlight */
     }
 
     .tab:hover {
       text-shadow: 0 0 5px #00ffff;
+    }
+
+    .tab.active {
+      border-bottom: 6px solid #00ffff; /* thick highlight */
+      background-color: #111; /* matches header background */
     }
 
     /* Main Content */
@@ -55,7 +60,7 @@
       display: none;
     }
 
-    .active {
+    .active-page {
       display: block;
     }
 
@@ -72,25 +77,34 @@
     }
   </style>
   <script>
-    function showPage(id) {
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(p => p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    function showPage(id, tabElement) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+      // Show selected page
+      document.getElementById(id).classList.add('active-page');
+
+      // Remove active class from all tabs
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      // Add active class to clicked tab
+      tabElement.classList.add('active');
     }
 
-    window.onload = () => showPage('intro');
+    window.onload = () => {
+      const firstTab = document.querySelector('.tab');
+      showPage('intro', firstTab);
+    };
   </script>
 </head>
 <body>
   <div class="overlay">
 
-    <!-- 🔹 Horizontal Header (Left-Aligned) -->
+    <!-- 🔹 Horizontal Header -->
     <div class="header">
-      <div class="tab" onclick="showPage('intro')">Introduction</div>
-      <div class="tab" onclick="showPage('resources')">Resources</div>
-      <div class="tab" onclick="showPage('writeups')">Writeups</div>
-      <div class="tab" onclick="showPage('misc')">Miscellaneous</div>
-      <div class="tab" onclick="showPage('about')">About</div>
+      <div class="tab" onclick="showPage('intro', this)">Introduction</div>
+      <div class="tab" onclick="showPage('resources', this)">Resources</div>
+      <div class="tab" onclick="showPage('writeups', this)">Writeups</div>
+      <div class="tab" onclick="showPage('misc', this)">Miscellaneous</div>
+      <div class="tab" onclick="showPage('about', this)">About</div>
     </div>
 
     <!-- 🔹 Main Content -->
