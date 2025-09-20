@@ -21,17 +21,18 @@
       flex-direction: column;
     }
 
-    /* Horizontal Header */
+    /* Horizontal Header - Left Aligned */
     .header {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start; /* Align to left */
       background-color: #111;
       border-bottom: 1px solid #00ffff55;
       padding: 15px 0;
+      padding-left: 40px; /* Margin from left edge */
     }
 
     .tab {
-      margin: 0 25px;
+      margin-right: 25px;
       font-size: 16px;
       font-weight: bold;
       color: #00ffff;
@@ -83,7 +84,7 @@
 <body>
   <div class="overlay">
 
-    <!-- 🔹 Horizontal Header -->
+    <!-- 🔹 Horizontal Header (Left-Aligned) -->
     <div class="header">
       <div class="tab" onclick="showPage('intro')">Introduction</div>
       <div class="tab" onclick="showPage('resources')">Resources</div>
