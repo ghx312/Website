@@ -3,12 +3,16 @@
 <head>
   <title>ghx312 Vault</title>
   <meta charset="UTF-8">
+
+  <!-- Import Fredoka font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Fredoka', monospace;
-      background: url('https://i.gifer.com/Nv2.mp4') no-repeat center center fixed;
+      font-family: 'Fredoka', sans-serif; /* Apply Fredoka font */
+      background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExenB0Njh3MG4wam56ajBkZnhzcWp5aG4wYzk4amphZzdvN3lzdzFzZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WoD6JZnwap6s8/giphy.gif') no-repeat center center fixed;
       background-size: cover;
       color: #00ffcc;
       height: 100%;
@@ -33,14 +37,14 @@
     .tab {
       padding: 15px 20px;
       font-size: 16px;
-      font-weight: bold;
+      font-weight: 600;
       color: #00ffff;
       cursor: pointer;
       transition: text-shadow 0.2s ease;
       border-bottom: 3px solid transparent; /* space for highlight */
     }
 
-    .tab: hover {
+    .tab:hover {
       text-shadow: 0 0 5px #00ffff;
     }
 
@@ -49,8 +53,8 @@
       background-color: #111;
     }
 
-    /* Main Content */
-    .main {
+    /* Content Area */
+    .Fredoke {
       flex-grow: 1;
       padding: 40px;
       overflow-y: auto;
@@ -76,6 +80,7 @@
       line-height: 1.6;
     }
   </style>
+
   <script>
     function showPage(id, tabElement) {
       // Hide all pages
@@ -107,17 +112,17 @@
       <div class="tab" onclick="showPage('about', this)">About</div>
     </div>
 
-    <!-- 🔹 Main Content -->
-    <div class="main">
+    <!-- 🔹 Content -->
+    <div class="Fredoke">
 
       <div class="page" id="intro">
         <h2>Introduction</h2>
-        <p>Welcome to my vault. This is a structured archive of my research, self-learning, and technical projects. Everything is organised into modular folders with previews and deep dives.</p>
+        <p>Welcome to my vault. This is a structured archive of my research, self-learning, and technical projects. Everything is organized into modular folders with previews and deep dives.</p>
       </div>
 
       <div class="page" id="resources">
         <h2>Resources</h2>
-        <p>Explore curated notes, frameworks, and toolkits across physics, computing, and strategic modelling. Each resource is designed for clarity, depth, and reusability.</p>
+        <p>Explore curated notes, frameworks, and toolkits across physics, computing, and strategic modeling. Each resource is designed for clarity, depth, and reusability.</p>
       </div>
 
       <div class="page" id="writeups">
