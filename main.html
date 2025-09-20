@@ -4,88 +4,73 @@
   <title>ghx312 Vault</title>
   <meta charset="UTF-8">
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Courier New', monospace;
       background: url('https://media.makeagif.com/media/QIoQws.gif') no-repeat center center fixed;
       background-size: cover;
       color: #00ffcc;
+      height: 100%;
     }
 
     .overlay {
       background-color: rgba(0, 0, 0, 0.85);
-      min-height: 100vh;
-      padding-top: 60px;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #111;
-      border-bottom: 1px solid #00ffff55;
       display: flex;
-      justify-content: center;
-      padding: 15px 0;
-      z-index: 1000;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    header button {
+    .sidebar {
+      width: 220px;
+      background-color: #111;
+      border-right: 1px solid #00ffff55;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+
+    .sidebar button {
       background: none;
       border: none;
       color: #00ffff;
       font-weight: bold;
       font-size: 16px;
-      margin: 0 20px;
+      padding: 15px 20px;
+      text-align: left;
       cursor: pointer;
+      transition: background 0.2s ease;
     }
 
-    header button:hover {
+    .sidebar button:hover {
+      background-color: #222;
       text-shadow: 0 0 5px #00ffff;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 40px;
+      overflow-y: auto;
     }
 
     .page {
       display: none;
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
     }
 
     .active {
       display: block;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 30px;
-      text-align: center;
-      text-shadow: 0 0 10px #00ffff;
-    }
-
-    .card {
-      background-color: #1a1a1a;
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 0 15px #00ffff55;
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px #00ffffaa;
-    }
-
-    .card h2 {
-      margin: 0;
+    h2 {
       font-size: 28px;
       color: #00ffff;
+      margin-bottom: 20px;
     }
 
-    .card p {
-      margin-top: 10px;
+    p {
       font-size: 16px;
       color: #cccccc;
+      line-height: 1.6;
     }
   </style>
   <script>
@@ -95,65 +80,50 @@
       document.getElementById(id).classList.add('active');
     }
 
-    window.onload = () => showPage('resources');
+    window.onload = () => showPage('intro');
   </script>
 </head>
 <body>
   <div class="overlay">
 
-    <!-- 🔹 Header Navigation -->
-    <header>
+    <!-- 🔹 Sidebar Navigation -->
+    <div class="sidebar">
+      <button onclick="showPage('intro')">Introduction</button>
       <button onclick="showPage('resources')">Resources</button>
-      <button onclick="showPage('about')">About Me</button>
-      <button onclick="showPage('socials')">Socials</button>
+      <button onclick="showPage('academics')">Academics</button>
+      <button onclick="showPage('cybersecurity')">Cybersecurity</button>
       <button onclick="showPage('settings')">Settings</button>
-    </header>
+    </div>
 
-    <!-- 🔹 Resources Page -->
-    <div class="page" id="resources">
-      <h1>ghx312 Knowledge Vault</h1>
+    <!-- 🔹 Main Content Area -->
+    <div class="main">
 
-      <div class="card">
-        <h2>Cybersecurity</h2>
-        <p>Explore ethical hacking tools, penetration testing workflows, and network analysis simulations.</p>
+      <div class="page" id="intro">
+        <h2>Introduction</h2>
+        <p>Welcome to my vault. This is a structured archive of my research, self-learning, and technical projects. Everything is organized into modular folders with previews and deep dives.</p>
       </div>
 
-      <div class="card">
-        <h2>Research Papers</h2>
-        <p>Original studies in Mahjong probability, physics practicals, and strategic modeling frameworks.</p>
+      <div class="page" id="resources">
+        <h2>Resources</h2>
+        <p>Explore curated notes, frameworks, and toolkits across physics, computing, and strategic modeling. Each resource is designed for clarity, depth, and reusability.</p>
       </div>
 
-      <div class="card">
+      <div class="page" id="academics">
         <h2>Academics</h2>
-        <p>Subject notes, exam strategies, and concept breakdowns across physics, computing, and geography.</p>
+        <p>Includes subject breakdowns, study strategies, and exam-ready summaries for physics, chemistry, geography, and computing. Built for precision and retention.</p>
       </div>
 
-      <div class="card">
-        <h2>Self-Learning</h2>
-        <p>Independent projects, technical workflows, and reflections on study routines and portfolio building.</p>
+      <div class="page" id="cybersecurity">
+        <h2>Cybersecurity</h2>
+        <p>Tools, techniques, and simulations for ethical hacking, penetration testing, and digital forensics. Includes command-line workflows and annotated case studies.</p>
       </div>
-    </div>
 
-    <!-- 🔹 About Me Page -->
-    <div class="page" id="about">
-      <h1>About Me</h1>
-      <p>I’m ghx312, a secondary student passionate about physics, computing, Mahjong strategy, and structured learning. I build systems that blend technical depth with creative flair.</p>
-    </div>
+      <div class="page" id="settings">
+        <h2>Settings</h2>
+        <p>Theme toggles, background control, and layout preferences coming soon. This section will allow customization of your viewing experience.</p>
+      </div>
 
-    <!-- 🔹 Socials Page -->
-    <div class="page" id="socials">
-      <h1>Socials</h1>
-      <p>GitHub: <a href="https://github.com/ghx312" target="_blank">ghx312</a></p>
-      <p>Email: ghx312@example.com</p>
-      <p>Discord: ghx312#1234</p>
     </div>
-
-    <!-- 🔹 Settings Page -->
-    <div class="page" id="settings">
-      <h1>Settings</h1>
-      <p>Background toggle, theme switcher, and layout preferences coming soon.</p>
-    </div>
-
   </div>
 </body>
 </html>
