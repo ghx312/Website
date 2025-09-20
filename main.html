@@ -4,10 +4,6 @@
   <title>ghx312 Vault</title>
   <meta charset="UTF-8">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: 'Courier New', monospace;
@@ -19,7 +15,7 @@
     .overlay {
       background-color: rgba(0, 0, 0, 0.85);
       min-height: 100vh;
-      padding: 0;
+      padding-top: 60px;
     }
 
     header {
@@ -34,27 +30,34 @@
       z-index: 1000;
     }
 
-    header a {
-      margin: 0 20px;
+    header button {
+      background: none;
+      border: none;
       color: #00ffff;
-      text-decoration: none;
       font-weight: bold;
       font-size: 16px;
+      margin: 0 20px;
+      cursor: pointer;
     }
 
-    header a:hover {
+    header button:hover {
       text-shadow: 0 0 5px #00ffff;
     }
 
-    section {
-      padding: 100px 20px 60px;
+    .page {
+      display: none;
+      padding: 40px 20px;
       max-width: 900px;
       margin: auto;
     }
 
+    .active {
+      display: block;
+    }
+
     h1 {
       font-size: 48px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       text-align: center;
       text-shadow: 0 0 10px #00ffff;
     }
@@ -85,62 +88,71 @@
       color: #cccccc;
     }
   </style>
+  <script>
+    function showPage(id) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    window.onload = () => showPage('resources');
+  </script>
 </head>
 <body>
   <div class="overlay">
 
     <!-- 🔹 Header Navigation -->
     <header>
-      <a href="#resources">Resources</a>
-      <a href="#about">About Me</a>
-      <a href="#socials">Socials</a>
-      <a href="#settings">Settings</a>
+      <button onclick="showPage('resources')">Resources</button>
+      <button onclick="showPage('about')">About Me</button>
+      <button onclick="showPage('socials')">Socials</button>
+      <button onclick="showPage('settings')">Settings</button>
     </header>
 
-    <!-- 🔹 Resources Section -->
-    <section id="resources">
+    <!-- 🔹 Resources Page -->
+    <div class="page" id="resources">
       <h1>ghx312 Knowledge Vault</h1>
 
       <div class="card">
         <h2>Cybersecurity</h2>
-        <p>Tools, techniques, and simulations for ethical hacking, network analysis, and digital forensics.</p>
+        <p>Explore ethical hacking tools, penetration testing workflows, and network analysis simulations.</p>
       </div>
 
       <div class="card">
         <h2>Research Papers</h2>
-        <p>Original studies and modeling in Mahjong probability, physics practicals, and strategic analysis.</p>
+        <p>Original studies in Mahjong probability, physics practicals, and strategic modeling frameworks.</p>
       </div>
 
       <div class="card">
         <h2>Academics</h2>
-        <p>Subject notes, study frameworks, and exam strategies across physics, computing, and geography.</p>
+        <p>Subject notes, exam strategies, and concept breakdowns across physics, computing, and geography.</p>
       </div>
 
       <div class="card">
         <h2>Self-Learning</h2>
-        <p>Reflections, technical workflows, and independent projects in GitHub, Markdown, and portfolio building.</p>
+        <p>Independent projects, technical workflows, and reflections on study routines and portfolio building.</p>
       </div>
-    </section>
+    </div>
 
-    <!-- 🔹 About Me Section -->
-    <section id="about">
+    <!-- 🔹 About Me Page -->
+    <div class="page" id="about">
       <h1>About Me</h1>
       <p>I’m ghx312, a secondary student passionate about physics, computing, Mahjong strategy, and structured learning. I build systems that blend technical depth with creative flair.</p>
-    </section>
+    </div>
 
-    <!-- 🔹 Socials Section -->
-    <section id="socials">
+    <!-- 🔹 Socials Page -->
+    <div class="page" id="socials">
       <h1>Socials</h1>
       <p>GitHub: <a href="https://github.com/ghx312" target="_blank">ghx312</a></p>
       <p>Email: ghx312@example.com</p>
       <p>Discord: ghx312#1234</p>
-    </section>
+    </div>
 
-    <!-- 🔹 Settings Section -->
-    <section id="settings">
+    <!-- 🔹 Settings Page -->
+    <div class="page" id="settings">
       <h1>Settings</h1>
       <p>Background toggle, theme switcher, and layout preferences coming soon.</p>
-    </section>
+    </div>
 
   </div>
 </body>
