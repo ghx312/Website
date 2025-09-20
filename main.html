@@ -16,33 +16,30 @@
 
     .overlay {
       background-color: rgba(0, 0, 0, 0.85);
-      display: flex;
       height: 100vh;
-      overflow: hidden;
-    }
-
-    /* Sidebar Tabs */
-    .sidebar {
-      width: 240px;
-      background-color: #111;
-      border-right: 1px solid #00ffff55;
       display: flex;
       flex-direction: column;
-      padding-top: 20px;
+    }
+
+    /* Horizontal Header */
+    .header {
+      display: flex;
+      justify-content: center;
+      background-color: #111;
+      border-bottom: 1px solid #00ffff55;
+      padding: 15px 0;
     }
 
     .tab {
-      padding: 15px 20px;
+      margin: 0 25px;
       font-size: 16px;
       font-weight: bold;
       color: #00ffff;
-      border-bottom: 1px solid #00ffff22;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: text-shadow 0.2s ease;
     }
 
     .tab:hover {
-      background-color: #222;
       text-shadow: 0 0 5px #00ffff;
     }
 
@@ -86,14 +83,13 @@
 <body>
   <div class="overlay">
 
-    <!-- 🔹 Sidebar Tabs -->
-    <div class="sidebar">
+    <!-- 🔹 Horizontal Header -->
+    <div class="header">
       <div class="tab" onclick="showPage('intro')">Introduction</div>
-      <div class="tab" onclick="showPage('vault')">Vault</div>
-      <div class="tab" onclick="showPage('academics')">Academics</div>
-      <div class="tab" onclick="showPage('cybersecurity')">Cybersecurity</div>
-      <div class="tab" onclick="showPage('projects')">Projects</div>
-      <div class="tab" onclick="showPage('settings')">Settings</div>
+      <div class="tab" onclick="showPage('resources')">Resources</div>
+      <div class="tab" onclick="showPage('writeups')">Writeups</div>
+      <div class="tab" onclick="showPage('misc')">Miscellaneous</div>
+      <div class="tab" onclick="showPage('about')">About</div>
     </div>
 
     <!-- 🔹 Main Content -->
@@ -104,29 +100,24 @@
         <p>Welcome to my vault. This is a structured archive of my research, self-learning, and technical projects. Everything is organized into modular folders with previews and deep dives.</p>
       </div>
 
-      <div class="page" id="vault">
-        <h2>Vault</h2>
-        <p>Explore categorized folders containing research papers, simulations, and strategic notes. Each folder leads to subfolders until you reach full writeups with math, media, and links.</p>
+      <div class="page" id="resources">
+        <h2>Resources</h2>
+        <p>Explore curated notes, frameworks, and toolkits across physics, computing, and strategic modeling. Each resource is designed for clarity, depth, and reusability.</p>
       </div>
 
-      <div class="page" id="academics">
-        <h2>Academics</h2>
-        <p>Includes subject breakdowns, study strategies, and exam-ready summaries for physics, chemistry, geography, and computing. Built for precision and retention.</p>
+      <div class="page" id="writeups">
+        <h2>Writeups</h2>
+        <p>Detailed breakdowns of experiments, simulations, and strategic models. Includes math syntax, annotated diagrams, and embedded workflows.</p>
       </div>
 
-      <div class="page" id="cybersecurity">
-        <h2>Cybersecurity</h2>
-        <p>Tools, techniques, and simulations for ethical hacking, penetration testing, and digital forensics. Includes command-line workflows and annotated case studies.</p>
+      <div class="page" id="misc">
+        <h2>Miscellaneous</h2>
+        <p>Side projects, creative layouts, and experimental ideas. This section holds everything that doesn’t fit neatly elsewhere — but still deserves a spotlight.</p>
       </div>
 
-      <div class="page" id="projects">
-        <h2>Projects</h2>
-        <p>Technical builds, portfolio experiments, and creative layouts. From Mahjong simulators to GitHub Pages optimizations, this section showcases hands-on work.</p>
-      </div>
-
-      <div class="page" id="settings">
-        <h2>Settings</h2>
-        <p>Theme toggles, background control, and layout preferences coming soon. This section will allow customization of your viewing experience.</p>
+      <div class="page" id="about">
+        <h2>About</h2>
+        <p>I’m ghx312, a secondary student passionate about physics, computing, Mahjong strategy, and structured learning. I build systems that blend technical depth with creative flair.</p>
       </div>
 
     </div>
