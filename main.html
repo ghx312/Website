@@ -4,9 +4,12 @@
   <title>ghx312 Vault</title>
   <meta charset="UTF-8">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Courier New', monospace;
       background: url('https://media.makeagif.com/media/QIoQws.gif') no-repeat center center fixed;
       background-size: cover;
@@ -16,35 +19,53 @@
     .overlay {
       background-color: rgba(0, 0, 0, 0.85);
       min-height: 100vh;
-      padding: 60px 20px;
+      padding: 0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #111;
+      border-bottom: 1px solid #00ffff55;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+
+    header a {
+      margin: 0 20px;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    header a:hover {
+      text-shadow: 0 0 5px #00ffff;
+    }
+
+    section {
+      padding: 100px 20px 60px;
+      max-width: 900px;
+      margin: auto;
     }
 
     h1 {
       font-size: 48px;
       margin-bottom: 40px;
+      text-align: center;
       text-shadow: 0 0 10px #00ffff;
     }
 
-    .card-container {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      width: 90%;
-      max-width: 900px;
-    }
-
     .card {
-      background-color: #111;
+      background-color: #1a1a1a;
       border-radius: 20px;
       padding: 30px;
+      margin-bottom: 30px;
       box-shadow: 0 0 15px #00ffff55;
       transition: transform 0.2s ease;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
     }
 
     .card:hover {
@@ -53,12 +74,13 @@
     }
 
     .card h2 {
+      margin: 0;
       font-size: 28px;
-      margin-bottom: 10px;
       color: #00ffff;
     }
 
     .card p {
+      margin-top: 10px;
       font-size: 16px;
       color: #cccccc;
     }
@@ -66,31 +88,60 @@
 </head>
 <body>
   <div class="overlay">
-    <h1>ghx312 Knowledge Vault</h1>
 
-    <div class="card-container">
+    <!-- 🔹 Header Navigation -->
+    <header>
+      <a href="#resources">Resources</a>
+      <a href="#about">About Me</a>
+      <a href="#socials">Socials</a>
+      <a href="#settings">Settings</a>
+    </header>
 
-      <a class="card" href="cybersecurity/index.html">
+    <!-- 🔹 Resources Section -->
+    <section id="resources">
+      <h1>ghx312 Knowledge Vault</h1>
+
+      <div class="card">
         <h2>Cybersecurity</h2>
-        <p>Explore ethical hacking tools, penetration testing workflows, and network analysis simulations.</p>
-      </a>
+        <p>Tools, techniques, and simulations for ethical hacking, network analysis, and digital forensics.</p>
+      </div>
 
-      <a class="card" href="research/index.html">
+      <div class="card">
         <h2>Research Papers</h2>
-        <p>Original studies in Mahjong probability, physics practicals, and strategic modeling frameworks.</p>
-      </a>
+        <p>Original studies and modeling in Mahjong probability, physics practicals, and strategic analysis.</p>
+      </div>
 
-      <a class="card" href="academics/index.html">
+      <div class="card">
         <h2>Academics</h2>
-        <p>Subject notes, exam strategies, and concept breakdowns across physics, computing, and geography.</p>
-      </a>
+        <p>Subject notes, study frameworks, and exam strategies across physics, computing, and geography.</p>
+      </div>
 
-      <a class="card" href="self-learning/index.html">
+      <div class="card">
         <h2>Self-Learning</h2>
-        <p>Independent projects, technical workflows, and reflections on study routines and portfolio building.</p>
-      </a>
+        <p>Reflections, technical workflows, and independent projects in GitHub, Markdown, and portfolio building.</p>
+      </div>
+    </section>
 
-    </div>
+    <!-- 🔹 About Me Section -->
+    <section id="about">
+      <h1>About Me</h1>
+      <p>I’m ghx312, a secondary student passionate about physics, computing, Mahjong strategy, and structured learning. I build systems that blend technical depth with creative flair.</p>
+    </section>
+
+    <!-- 🔹 Socials Section -->
+    <section id="socials">
+      <h1>Socials</h1>
+      <p>GitHub: <a href="https://github.com/ghx312" target="_blank">ghx312</a></p>
+      <p>Email: ghx312@example.com</p>
+      <p>Discord: ghx312#1234</p>
+    </section>
+
+    <!-- 🔹 Settings Section -->
+    <section id="settings">
+      <h1>Settings</h1>
+      <p>Background toggle, theme switcher, and layout preferences coming soon.</p>
+    </section>
+
   </div>
 </body>
 </html>
