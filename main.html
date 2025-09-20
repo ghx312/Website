@@ -1,93 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ghx312 Knowledge Vault</title>
+  <title>ghx312 Vault</title>
   <meta charset="UTF-8">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f0f0f;
-      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
+      background: url('https://media.makeagif.com/media/QIoQws.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: #00ffcc;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      min-height: 100vh;
+      padding: 60px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     h1 {
-      margin-top: 60px;
       font-size: 48px;
-      color: #00ffff;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ffff;
     }
 
-    .container {
+    .card-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      margin-top: 40px;
       gap: 30px;
-      width: 80%;
+      width: 90%;
       max-width: 900px;
     }
 
-    .box {
-      background-color: #1a1a1a;
+    .card {
+      background-color: #111;
       border-radius: 20px;
       padding: 30px;
-      width: 100%;
-      box-shadow: 0 0 10px #00ffff55;
+      box-shadow: 0 0 15px #00ffff55;
       transition: transform 0.2s ease;
       cursor: pointer;
       text-decoration: none;
       color: inherit;
     }
 
-    .box:hover {
+    .card:hover {
       transform: scale(1.02);
-      box-shadow: 0 0 15px #00ffffaa;
+      box-shadow: 0 0 20px #00ffffaa;
     }
 
-    .box h2 {
-      margin: 0;
+    .card h2 {
       font-size: 28px;
+      margin-bottom: 10px;
       color: #00ffff;
     }
 
-    .box p {
-      margin-top: 10px;
+    .card p {
       font-size: 16px;
       color: #cccccc;
     }
   </style>
 </head>
 <body>
+  <div class="overlay">
+    <h1>ghx312 Knowledge Vault</h1>
 
-  <h1>ghx312 Knowledge Vault</h1>
+    <div class="card-container">
 
-  <div class="container">
+      <a class="card" href="cybersecurity/index.html">
+        <h2>Cybersecurity</h2>
+        <p>Explore ethical hacking tools, penetration testing workflows, and network analysis simulations.</p>
+      </a>
 
-    <a class="box" href="cybersecurity/index.html">
-      <h2>Cybersecurity</h2>
-      <p>Tools, techniques, and simulations for ethical hacking, network analysis, and digital forensics.</p>
-    </a>
+      <a class="card" href="research/index.html">
+        <h2>Research Papers</h2>
+        <p>Original studies in Mahjong probability, physics practicals, and strategic modeling frameworks.</p>
+      </a>
 
-    <a class="box" href="research/index.html">
-      <h2>Research Papers</h2>
-      <p>Original studies and modeling in Mahjong probability, physics practicals, and strategic analysis.</p>
-    </a>
+      <a class="card" href="academics/index.html">
+        <h2>Academics</h2>
+        <p>Subject notes, exam strategies, and concept breakdowns across physics, computing, and geography.</p>
+      </a>
 
-    <a class="box" href="academics/index.html">
-      <h2>Academics</h2>
-      <p>Subject notes, study frameworks, and exam strategies across physics, computing, geography, and more.</p>
-    </a>
+      <a class="card" href="self-learning/index.html">
+        <h2>Self-Learning</h2>
+        <p>Independent projects, technical workflows, and reflections on study routines and portfolio building.</p>
+      </a>
 
-    <a class="box" href="self-learning/index.html">
-      <h2>Self-Learning</h2>
-      <p>Reflections, technical workflows, and independent projects in GitHub, Markdown, and portfolio building.</p>
-    </a>
-
+    </div>
   </div>
-
 </body>
 </html>
