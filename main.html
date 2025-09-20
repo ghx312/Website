@@ -1,113 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ghx312 Research Hub</title>
+  <title>ghx312 Knowledge Vault</title>
   <meta charset="UTF-8">
   <style>
-    body { font-family: sans-serif; margin: 40px; max-width: 900px; }
-    h1, h2, h3 { color: #2c3e50; }
-    .folder { margin-bottom: 40px; }
-    .doc { margin-left: 20px; margin-bottom: 20px; }
-    .section { margin-left: 40px; margin-bottom: 10px; }
-    .title { font-weight: bold; font-size: 18px; margin-bottom: 5px; }
-    .desc { font-size: 14px; color: #555; }
+    body {
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      color: #00ffcc;
+      background: url('https://media.makeagif.com/media/QIoQws.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      min-height: 100vh;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+    .folder {
+      margin-bottom: 30px;
+    }
+    .folder h2 {
+      cursor: pointer;
+      color: #00ffcc;
+    }
+    .subfolder, .content {
+      margin-left: 20px;
+      display: none;
+    }
+    .toggle-btn {
+      background: #222;
+      color: #00ffff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
   </style>
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+    function toggleBackground() {
+      document.body.style.background = document.body.style.background ? '' : 'url("")';
+    }
+  </script>
 </head>
 <body>
-
-  <h1>📁 ghx312 Research & Learning Archive</h1>
-  <p>Welcome to my structured hub of findings, experiments, and self-learning. Click into each folder to explore documents and their sections.</p>
-
-  <!-- Folder: Mahjong -->
-  <div class="folder">
-    <h2>🀄 Mahjong Probability Models</h2>
-
-    <div class="doc">
-      <h3>📄 Tile Distribution Simulation</h3>
-      <div class="section">
-        <div class="title">Overview</div>
-        <div class="desc">Simulated 1000 hands to analyze pair/triplet/sequence frequencies.</div>
+  <div class="overlay">
+    <nav>
+      <div>
+        <a href="#">Resources</a>
+        <a href="#">About Me</a>
+        <a href="#">Socials</a>
       </div>
-      <div class="section">
-        <div class="title">Methodology</div>
-        <div class="desc">Used Python combinatorics and frequency analysis.</div>
-      </div>
-      <div class="section">
-        <div class="title">Findings</div>
-        <div class="desc">Sequences dominate mid-value tiles; pairs appear in 42% of hands.</div>
+      <button class="toggle-btn" onclick="toggleBackground()">Toggle Background</button>
+    </nav>
+
+    <div class="folder">
+      <h2 onclick="toggle('cyber')">📁 Cybersecurity</h2>
+      <div class="subfolder" id="cyber">
+        <h3 onclick="toggle('cyber-tools')">📄 Tools & Techniques</h3>
+        <div class="content" id="cyber-tools">
+          <p><strong>Overview:</strong> Notes on Nmap, Wireshark, and basic penetration testing.</p>
+          <img src="cyber-tools.png" alt="Cyber tools diagram" width="400">
+          <p><a href="https://nmap.org">Nmap Official Site</a></p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/3Kq1MIfTWCE" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
 
-    <div class="doc">
-      <h3>📄 Discard Optimization</h3>
-      <div class="section">
-        <div class="title">Strategy Comparison</div>
-        <div class="desc">Compared early honor tile discards vs isolated tile discards.</div>
-      </div>
-      <div class="section">
-        <div class="title">Expected Value Model</div>
-        <div class="desc">Used decision trees to evaluate discard outcomes.</div>
+    <div class="folder">
+      <h2 onclick="toggle('research')">📁 Research Papers</h2>
+      <div class="subfolder" id="research">
+        <h3 onclick="toggle('mahjong')">📄 Mahjong Probability</h3>
+        <div class="content" id="mahjong">
+          <p><strong>Abstract:</strong> Combinatorial modeling of tile distributions and discard strategies.</p>
+          <p>Includes math syntax, simulations, and strategic analysis.</p>
+          <img src="mahjong-graph.png" alt="Mahjong graph" width="400">
+          <p><a href="https://example.com/full-paper">Full Paper</a></p>
+        </div>
       </div>
     </div>
+
+    <div class="folder">
+      <h2 onclick="toggle('academics')">📁 Academics</h2>
+      <div class="subfolder" id="academics">
+        <h3 onclick="toggle('physics')">📄 Physics Practicals</h3>
+        <div class="content" id="physics">
+          <p><strong>Experiment:</strong> Friction vs Inclination Angle</p>
+          <p>Includes setup photos, error analysis, and graphing results.</p>
+          <img src="friction-setup.jpg" alt="Physics setup" width="400">
+        </div>
+      </div>
+    </div>
+
   </div>
-
-  <!-- Folder: Physics -->
-  <div class="folder">
-    <h2>🧪 Physics Practical Frameworks</h2>
-
-    <div class="doc">
-      <h3>📄 Friction vs Inclination</h3>
-      <div class="section">
-        <div class="title">Setup Design</div>
-        <div class="desc">Inclined plane with variable angles and surface types.</div>
-      </div>
-      <div class="section">
-        <div class="title">Error Analysis</div>
-        <div class="desc">Used percentage uncertainty and repeated trials.</div>
-      </div>
-    </div>
-
-    <div class="doc">
-      <h3>📄 Circuit Safety & Power Dissipation</h3>
-      <div class="section">
-        <div class="title">Resistor Configurations</div>
-        <div class="desc">Series vs parallel setups and overheating risks.</div>
-      </div>
-      <div class="section">
-        <div class="title">Simulation Results</div>
-        <div class="desc">Used voltage sweeps to test power thresholds.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Folder: Self-Learning -->
-  <div class="folder">
-    <h2>📚 Self-Learning Notes</h2>
-
-    <div class="doc">
-      <h3>📄 Geography: Coastal Defenses</h3>
-      <div class="section">
-        <div class="title">Hard vs Soft Engineering</div>
-        <div class="desc">Compared seawalls, groynes, beach nourishment, and managed retreat.</div>
-      </div>
-      <div class="section">
-        <div class="title">Case Studies</div>
-        <div class="desc">Singapore East Coast Park and Holderness Coast (UK).</div>
-      </div>
-    </div>
-
-    <div class="doc">
-      <h3>📄 Computing: GitHub Pages Setup</h3>
-      <div class="section">
-        <div class="title">Steps to Launch</div>
-        <div class="desc">Created repo, enabled Pages, added index.html, pushed via GitHub Desktop.</div>
-      </div>
-      <div class="section">
-        <div class="title">Troubleshooting</div>
-        <div class="desc">Fixed 404 error by adding homepage file and making repo public.</div>
-      </div>
-    </div>
-  </div>
-
 </body>
 </html>
