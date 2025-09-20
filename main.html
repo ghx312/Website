@@ -5,108 +5,89 @@
   <meta charset="UTF-8">
   <style>
     body {
-      font-family: monospace;
       margin: 0;
       padding: 0;
-      color: #00ffcc;
-      background: url('https://media.makeagif.com/media/QIoQws.gif') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 40px;
-      min-height: 100vh;
-    }
-    nav {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #e0e0e0;
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 30px;
+      flex-direction: column;
+      align-items: center;
     }
-    nav a {
+
+    h1 {
+      margin-top: 60px;
+      font-size: 48px;
       color: #00ffff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      gap: 30px;
+      width: 80%;
+      max-width: 900px;
+    }
+
+    .box {
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      padding: 30px;
+      width: 100%;
+      box-shadow: 0 0 10px #00ffff55;
+      transition: transform 0.2s ease;
+      cursor: pointer;
       text-decoration: none;
-      margin-right: 20px;
-      font-weight: bold;
+      color: inherit;
     }
-    .folder {
-      margin-bottom: 30px;
+
+    .box:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px #00ffffaa;
     }
-    .folder h2 {
-      cursor: pointer;
-      color: #00ffcc;
-    }
-    .subfolder, .content {
-      margin-left: 20px;
-      display: none;
-    }
-    .toggle-btn {
-      background: #222;
+
+    .box h2 {
+      margin: 0;
+      font-size: 28px;
       color: #00ffff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      margin-left: 10px;
+    }
+
+    .box p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #cccccc;
     }
   </style>
-  <script>
-    function toggle(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === 'block' ? 'none' : 'block';
-    }
-    function toggleBackground() {
-      document.body.style.background = document.body.style.background ? '' : 'url("")';
-    }
-  </script>
 </head>
 <body>
-  <div class="overlay">
-    <nav>
-      <div>
-        <a href="#">Resources</a>
-        <a href="#">About Me</a>
-        <a href="#">Socials</a>
-      </div>
-      <button class="toggle-btn" onclick="toggleBackground()">Toggle Background</button>
-    </nav>
 
-    <div class="folder">
-      <h2 onclick="toggle('cyber')">📁 Cybersecurity</h2>
-      <div class="subfolder" id="cyber">
-        <h3 onclick="toggle('cyber-tools')">📄 Tools & Techniques</h3>
-        <div class="content" id="cyber-tools">
-          <p><strong>Overview:</strong> Notes on Nmap, Wireshark, and basic penetration testing.</p>
-          <img src="cyber-tools.png" alt="Cyber tools diagram" width="400">
-          <p><a href="https://nmap.org">Nmap Official Site</a></p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/3Kq1MIfTWCE" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
+  <h1>ghx312 Knowledge Vault</h1>
 
-    <div class="folder">
-      <h2 onclick="toggle('research')">📁 Research Papers</h2>
-      <div class="subfolder" id="research">
-        <h3 onclick="toggle('mahjong')">📄 Mahjong Probability</h3>
-        <div class="content" id="mahjong">
-          <p><strong>Abstract:</strong> Combinatorial modeling of tile distributions and discard strategies.</p>
-          <p>Includes math syntax, simulations, and strategic analysis.</p>
-          <img src="mahjong-graph.png" alt="Mahjong graph" width="400">
-          <p><a href="https://example.com/full-paper">Full Paper</a></p>
-        </div>
-      </div>
-    </div>
+  <div class="container">
 
-    <div class="folder">
-      <h2 onclick="toggle('academics')">📁 Academics</h2>
-      <div class="subfolder" id="academics">
-        <h3 onclick="toggle('physics')">📄 Physics Practicals</h3>
-        <div class="content" id="physics">
-          <p><strong>Experiment:</strong> Friction vs Inclination Angle</p>
-          <p>Includes setup photos, error analysis, and graphing results.</p>
-          <img src="friction-setup.jpg" alt="Physics setup" width="400">
-        </div>
-      </div>
-    </div>
+    <a class="box" href="cybersecurity/index.html">
+      <h2>Cybersecurity</h2>
+      <p>Tools, techniques, and simulations for ethical hacking, network analysis, and digital forensics.</p>
+    </a>
+
+    <a class="box" href="research/index.html">
+      <h2>Research Papers</h2>
+      <p>Original studies and modeling in Mahjong probability, physics practicals, and strategic analysis.</p>
+    </a>
+
+    <a class="box" href="academics/index.html">
+      <h2>Academics</h2>
+      <p>Subject notes, study frameworks, and exam strategies across physics, computing, geography, and more.</p>
+    </a>
+
+    <a class="box" href="self-learning/index.html">
+      <h2>Self-Learning</h2>
+      <p>Reflections, technical workflows, and independent projects in GitHub, Markdown, and portfolio building.</p>
+    </a>
 
   </div>
+
 </body>
 </html>
