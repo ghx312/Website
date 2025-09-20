@@ -21,8 +21,9 @@
       overflow: hidden;
     }
 
+    /* Sidebar Tabs */
     .sidebar {
-      width: 220px;
+      width: 240px;
       background-color: #111;
       border-right: 1px solid #00ffff55;
       display: flex;
@@ -30,23 +31,22 @@
       padding-top: 20px;
     }
 
-    .sidebar button {
-      background: none;
-      border: none;
-      color: #00ffff;
-      font-weight: bold;
-      font-size: 16px;
+    .tab {
       padding: 15px 20px;
-      text-align: left;
+      font-size: 16px;
+      font-weight: bold;
+      color: #00ffff;
+      border-bottom: 1px solid #00ffff22;
       cursor: pointer;
       transition: background 0.2s ease;
     }
 
-    .sidebar button:hover {
+    .tab:hover {
       background-color: #222;
       text-shadow: 0 0 5px #00ffff;
     }
 
+    /* Main Content */
     .main {
       flex-grow: 1;
       padding: 40px;
@@ -86,16 +86,17 @@
 <body>
   <div class="overlay">
 
-    <!-- 🔹 Sidebar Navigation -->
+    <!-- 🔹 Sidebar Tabs -->
     <div class="sidebar">
-      <button onclick="showPage('intro')">Introduction</button>
-      <button onclick="showPage('resources')">Resources</button>
-      <button onclick="showPage('academics')">Academics</button>
-      <button onclick="showPage('cybersecurity')">Cybersecurity</button>
-      <button onclick="showPage('settings')">Settings</button>
+      <div class="tab" onclick="showPage('intro')">Introduction</div>
+      <div class="tab" onclick="showPage('vault')">Vault</div>
+      <div class="tab" onclick="showPage('academics')">Academics</div>
+      <div class="tab" onclick="showPage('cybersecurity')">Cybersecurity</div>
+      <div class="tab" onclick="showPage('projects')">Projects</div>
+      <div class="tab" onclick="showPage('settings')">Settings</div>
     </div>
 
-    <!-- 🔹 Main Content Area -->
+    <!-- 🔹 Main Content -->
     <div class="main">
 
       <div class="page" id="intro">
@@ -103,9 +104,9 @@
         <p>Welcome to my vault. This is a structured archive of my research, self-learning, and technical projects. Everything is organized into modular folders with previews and deep dives.</p>
       </div>
 
-      <div class="page" id="resources">
-        <h2>Resources</h2>
-        <p>Explore curated notes, frameworks, and toolkits across physics, computing, and strategic modeling. Each resource is designed for clarity, depth, and reusability.</p>
+      <div class="page" id="vault">
+        <h2>Vault</h2>
+        <p>Explore categorized folders containing research papers, simulations, and strategic notes. Each folder leads to subfolders until you reach full writeups with math, media, and links.</p>
       </div>
 
       <div class="page" id="academics">
@@ -116,6 +117,11 @@
       <div class="page" id="cybersecurity">
         <h2>Cybersecurity</h2>
         <p>Tools, techniques, and simulations for ethical hacking, penetration testing, and digital forensics. Includes command-line workflows and annotated case studies.</p>
+      </div>
+
+      <div class="page" id="projects">
+        <h2>Projects</h2>
+        <p>Technical builds, portfolio experiments, and creative layouts. From Mahjong simulators to GitHub Pages optimizations, this section showcases hands-on work.</p>
       </div>
 
       <div class="page" id="settings">
