@@ -95,6 +95,17 @@
       transform: scale(1.1);
       filter: drop-shadow(0 0 5px #00ffff);
     }
+        /* Make links same colour as normal text */
+    a {
+      color: #cccccc; /* same as your normal paragraph text */
+      text-decoration: none;
+      display: block; /* forces vertical stacking */
+      margin: 5px 0;  /* space between links */
+    }
+    
+    a:hover {
+      text-shadow: 0 0 5px #00ffff; /* optional hover glow */
+    }
   </style>
 
   <script>
