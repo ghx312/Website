@@ -10,7 +10,7 @@ html, body {
       
       .overlay {
         min-height: 100vh; /* always at least full viewport height */
-        background-color: rgba(0, 0, 0, 0.4); /* black overlay at 50% opacity */
+        background-color: rgba(0, 0, 0, 0.3); /* black overlay at 50% opacity */
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
