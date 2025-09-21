@@ -138,11 +138,77 @@
     <p>Encrypt: C = M<sup>e</sup> mod N  
     Decrypt: M = C<sup>d</sup> mod N</p>
     
-    <h2>RSA Cracking Methods</h2>
+    <h2>Modular Bionmials</h2>
+    <h3>RSA Decoder</h3>
+    <p>N = p × q</p>
+    <p>
+      c<sub>1</sub> = (a<sub>1</sub>·p + b<sub>1</sub>·q)<sup>e<sub>1</sub></sup> mod N<br>
+      c<sub>2</sub> = (a<sub>2</sub>·p + b<sub>2</sub>·q)<sup>e<sub>2</sub></sup> mod N
+    </p>
+    <p>
+      q = gcd( (a<sub>2</sub> − e<sub>1</sub>e<sub>2</sub> mod N) · (c<sub>2</sub><sup>e<sub>1</sub></sup> mod N) − (a<sub>1</sub> − e<sub>1</sub>e<sub>2</sub> mod N) · (c<sub>1</sub><sup>e<sub>2</sub></sup> mod N), N )<br>
+      p = gcd( (b<sub>2</sub> − e<sub>1</sub>e<sub>2</sub> mod N) · (c<sub>2</sub><sup>e<sub>1</sub></sup> mod N) − (b<sub>1</sub> − e<sub>1</sub>e<sub>2</sub> mod N) · (c<sub>1</sub><sup>e<sub>2</sub></sup> mod N), N )
+    </p>
+    <p>or simply p = N / q</p>
+    
+    <h2>Quadratic Equations</h2>
+    <p>
+      φ(N) = (p − 1)(q − 1) = pq − (p + q) + 1 = N − (p + q) + 1, hence<br>
+      p + q = N − φ(N) + 1
+    </p>
+    <p>Let p and q be the roots of a quadratic:</p>
+    <p>
+      (x − p)(x − q) = 0 ⇒ x² − (p + q)x + pq = 0
+    </p>
+    <p>
+      Substitute pq = N and p + q = N − φ(N) + 1:
+    </p>
+    <p>
+      x² − (N − φ(N) + 1)x + N = 0
+    </p>
+    <p>
+      If the value of φ(N) is correct, the roots are integers, giving the factors of N.
+    </p>
+    
+    <h2>Simple Continued Fraction / Wiener’s Attack</h2>
+    <p>
+      φ(N) = (p − 1)(q − 1) = N − (p + q) + 1 ≈ N (since p + q ≪ pq)
+    </p>
+    <p>
+      Since k &gt; 0 and k ∈ ℤ for ed = k·φ(N) + 1, we have:
+    </p>
+    <p>
+      ed − k·φ(N) = 1
+    </p>
+    <p>
+      Divide both sides by d·φ(N):
+    </p>
+    <p>
+      e/φ(N) − k/d = 1/(d·φ(N))
+    </p>
+    <p>
+      Since d·φ(N) is large, 1/(d·φ(N)) ≈ 0, hence:
+    </p>
+    <p>
+      e/φ(N) ≈ k/d
+    </p>
+    <p>
+      Additional constraints used to filter candidates:
+    </p>
     <ul>
-      <li>Factor N to get p, q → φ(N) → d.</li>
-      <li>Use GCD attacks, quadratic equations, Wiener's attack, etc.</li>
+      <li>ed ≡ 1 (mod φ(N))</li>
+      <li>φ(N) ≡ 0 (mod 2) ⇒ d should be odd; if d is even, skip</li>
+      <li>If (ed − 1)/k ∉ ℤ, skip that k</li>
     </ul>
+    <p>
+      Use Euclid’s Algorithm/continued fractions to find convergents k/d satisfying the above; then use the quadratic method to verify φ(N) yields integer roots for p and q.
+    </p>
+    
+    <h3>Wiener’s success conditions</h3>
+    <p>
+      Typically succeeds if q &lt; p &lt; 2q and d &lt; N<sup>1/4</sup> / 3.<br>
+      It can still succeed in some cases even if d &gt; N<sup>1/4</sup> / 3.
+    </p>
     
     <h2>Wilson’s Theorem</h2>
     <p>(p−1)! ≡ −1 (mod p) if p is prime.</p>
