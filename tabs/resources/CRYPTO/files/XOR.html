@@ -1,2 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cryptography - ghx312's Website</title>
+  <meta charset="UTF-8">
+  <!-- Import Fredoka font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Go up one folder to get style.css -->
+  <link rel="stylesheet" href="../../../../style.css">
+  <style>
+    /* Extra centring for this page */
+    .content {
+      max-width: 900px;   /* keeps it from stretching too wide */
+      margin: 0 auto;     /* centers horizontally */
+      padding: 40px;      /* breathing room from edges */
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
 
-<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"><style type="text/css">@import url(https://themes.googleusercontent.com/fonts/css?kit=v0a9nWwoZQTym5NBKakPnlcv9dJArJ9O_-lVjKxEp-18u45WU12y72TEk3aAZtZE);.lst-kix_xh84sib1rhj7-1>li:before{content:"-  "}.lst-kix_xh84sib1rhj7-2>li:before{content:"-  "}.lst-kix_xh84sib1rhj7-0>li:before{content:"-  "}.lst-kix_xh84sib1rhj7-8>li:before{content:"-  "}ul.lst-kix_xh84sib1rhj7-5{list-style-type:none}.lst-kix_xh84sib1rhj7-5>li:before{content:"-  "}.lst-kix_xh84sib1rhj7-6>li:before{content:"-  "}ul.lst-kix_xh84sib1rhj7-6{list-style-type:none}ul.lst-kix_xh84sib1rhj7-7{list-style-type:none}ul.lst-kix_xh84sib1rhj7-8{list-style-type:none}.lst-kix_xh84sib1rhj7-3>li:before{content:"-  "}.lst-kix_xh84sib1rhj7-7>li:before{content:"-  "}ul.lst-kix_xh84sib1rhj7-0{list-style-type:none}ul.lst-kix_xh84sib1rhj7-1{list-style-type:none}ul.lst-kix_xh84sib1rhj7-2{list-style-type:none}.lst-kix_xh84sib1rhj7-4>li:before{content:"-  "}ul.lst-kix_xh84sib1rhj7-3{list-style-type:none}ul.lst-kix_xh84sib1rhj7-4{list-style-type:none}ol{margin:0;padding:0}table td,table th{padding:0}.c2{-webkit-text-decoration-skip:none;color:#000000;font-weight:400;text-decoration:underline;vertical-align:baseline;text-decoration-skip-ink:none;font-size:11pt;font-family:"Fredoka";font-style:normal}.c5{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:normal}.c0{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Fredoka";font-style:normal}.c9{padding-top:16pt;padding-bottom:4pt;line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.c3{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left;height:11pt}.c1{color:#000000;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:14pt;font-family:"Fredoka";font-style:normal}.c4{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c10{color:#000000;text-decoration:none;vertical-align:baseline;font-size:12pt;font-style:normal}.c8{text-decoration-skip-ink:none;-webkit-text-decoration-skip:none;text-decoration:underline}.c11{color:#000000;font-weight:700;font-family:"Fredoka"}.c12{font-size:12pt;font-weight:400;font-family:"Roboto"}.c7{background-color:#ffffff;max-width:451.4pt;padding:72pt 72pt 72pt 72pt}.c6{font-weight:400;font-family:"Fredoka"}.c13{font-size:12pt}.title{padding-top:0pt;color:#000000;font-size:26pt;padding-bottom:3pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:15pt;padding-bottom:16pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}h1{padding-top:20pt;color:#000000;font-size:20pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:18pt;color:#000000;font-size:16pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:16pt;color:#434343;font-size:14pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:14pt;color:#666666;font-size:12pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}</style></head><body class="c7 doc-content"><h3 class="c9" id="h.aeodnfg2th4v"><span class="c1">XOR Syntax</span></h3><p class="c4"><img src="images/image1.png"><span class="c0">&nbsp;and ^</span></p><p class="c4"><span class="c6">XOR uses symmetric encryption as both the </span><img src="images/image2.png"><span class="c0">&nbsp;uses the same key to encrypt and decode</span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c0">XOR Properties:</span></p><p class="c4"><img src="images/image3.png"><span class="c0">&nbsp;(Order does not matter, .Commutative)</span></p><p class="c4"><img src="images/image4.png"><span class="c0">&nbsp;(Associative)</span></p><p class="c4"><img src="images/image5.png"><span class="c0">&nbsp;(Identity Element)</span></p><p class="c4"><img src="images/image6.png"><span class="c0">&nbsp;(Self-Inversing)</span></p><p class="c4"><img src="images/image7.png"><span class="c6">&nbsp;(Where n is the length of A, and </span><img src="images/image8.png"><span class="c0">&nbsp;is the bitwise complement of A)</span></p><p class="c4"><img src="images/image9.png"><span class="c12">&nbsp;</span><span class="c6 c10">(Bitwise Operation)</span></p><p class="c4"><span class="c6 c13">If </span><img src="images/image10.png"></p><p class="c3"><span class="c0"></span></p><p class="c4"><img src="images/image11.png"></p><p class="c4"><img src="images/image12.png"></p><p class="c3"><span class="c0"></span></p><h3 class="c9" id="h.n2zb1kgr6stl"><span class="c1">Python</span></h3><p class="c4"><span class="c0">pip install pwntools</span></p><p class="c4"><span class="c6">from pwntools import xor</span></p><p class="c4"><span class="c0">xor(BYTES, BYTES), XORs bytes together</span></p><p class="c4"><span class="c0">bytes.fromhex(HEX), convert Hex to Bytes</span></p><p class="c3"><span class="c0"></span></p><h3 class="c9" id="h.5qii3wun8flw"><span class="c1">Partial XORing</span></h3><p class="c4"><span class="c6">Flag{???}</span><img src="images/image1.png"><span class="c0">&nbsp;SecretKey = Ciphertext</span></p><p class="c4"><span class="c0">The secret key used is not known, but with the Ciphertext and flag format, it can be partially revealed</span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c0">Ciphertext &oplus; flag format = Part of the secret key</span></p><p class="c3"><span class="c0"></span></p><h3 class="c9" id="h.8uiz0kr3cjz9"><span class="c11">One-Time Pad</span></h3><p class="c4"><span class="c0">One-Time Pad has Perfect Secrecy and hence Perfect Indistinguishability</span></p><p class="c4"><img src="images/image13.png"><span class="c0">&nbsp;is the security parameter</span></p><p class="c4"><span class="c6">(Security parameter is the possible type of input, key and output for this encryption system, in this case it is 0 and 1, which is binary, where </span><img src="images/image14.png"><span class="c0">&nbsp;is the length of the message)</span></p><p class="c4"><img src="images/image15.png"><span class="c6">&nbsp;chooses sk at random </span><img src="images/image16.png"><span class="c0">&nbsp;</span></p><p class="c4"><img src="images/image17.png"></p><p class="c4"><img src="images/image18.png"></p><p class="c4"><span class="c0">This encryption scheme achieves Perfect Secrecy as there is only 1 key to a message that matches a predetermined ciphertext, vice versa, making all messages and ciphertexts equally likely, achieving Perfect Secrecy</span></p><p class="c3"><span class="c2"></span></p><p class="c3"><span class="c2"></span></p><h3 class="c9" id="h.4yd461yorv9a"><span class="c1">Advanced XOR Obfuscation</span></h3><p class="c4"><span class="c0">Using multi-byte keys, remove the repetitiveness in keys</span></p><p class="c4"><span class="c0">Varying byte key lengths</span></p><p class="c4"><span class="c0">Dynamic Key Generation (Key is generated based on a part of the plaintext)</span></p><p class="c4"><span class="c0">Using other mathematical algorithms</span></p><p class="c3"><span class="c0"></span></p><h3 class="c9" id="h.43rbt1gi5ekq"><span class="c1">Vulnerabilities</span></h3><p class="c4"><span class="c2">Key Reuse Vulnerability:</span></p><p class="c4"><img src="images/image19.png"></p><p class="c4"><img src="images/image20.png"></p><p class="c4"><img src="images/image21.png"></p><p class="c4"><span class="c0">This can reveal the plaintext through statistical analysis or a known-plaintext attack</span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c2">Known-plaintext Attack:</span></p><p class="c4"><img src="images/image22.png"></p><p class="c4"><span class="c0">Knowing part of the plaintext can allow you to know part of the key, increasing vulnerability for future attacks</span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c6 c8">Bit flipping attack:</span><span class="c0">&nbsp;(Linear Separability) </span></p><p class="c4"><span class="c0">By flipping the bits in a ciphertext, you can manipulate the message as XOR has a very linear system, where any change in any variable will cause a change in other variables</span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c2">Poor Randomness of Key:</span></p><p class="c4"><span class="c0">If the key generated is not truly random, statistical analysis can be used to crack the key and hence the message from the ciphertext</span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c2">Single-Byte XOR Vulnerability:</span></p><p class="c4"><span class="c0">Frequency analysis can be used to find out which byte it is.</span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c8 c6">Frequency Analysis:</span><span class="c0"><br>XOR is not safe from frequency analysis when the key is reused, as XOR has TERRIBLE diffusion properties, making the plaintext susceptible to frequency analysis</span></p><p class="c3"><span class="c0"></span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c2">TLS 1.0 CBC Mode:</span></p><p class="c4"><span class="c0">This is a cryptographic protocol that can be decrypted by exploiting XOR&rsquo;s vulnerabilities, by using chosen-plaintext attacks and BEAST attacks, by exploiting the XOR and IVs and message data. (IV: Pseudorandom value used at the start of an encryption program)</span></p><p class="c3"><span class="c0"></span></p><p class="c4"><span class="c2">Advanced Obfuscation Attack:</span></p><p class="c4"><span class="c0">Using statistical analysis and differential analysis, detect repeated samples or weak points</span></p><p class="c4"><span class="c0">Known Plaintext/Chosen Plaintext </span></p><p class="c4"><span class="c0">Binary Structure recognition (E.g Headers for JPG: FFD8)</span></p><p class="c3"><span class="c5"></span></p></body></html>
+    <!-- 🔹 Navigation Header -->
+    <div class="header">
+      <a class="tab" href="../../../main.html">Introduction</a>
+      <a class="tab" href="../../../resources.html">Resources</a>
+      <a class="tab" href="../../../writeups.html">Writeups</a>
+      <a class="tab" href="../../../misc.html">Miscellaneous</a>
+      <a class="tab" href="../../../about.html">About</a>
+    </div>
+
+    <!-- 🔹 Page Content -->
+    <div class="content">
+    <h2>XOR Syntax</h2>
+    <p>
+    XOR can be represented as <code>^</code> or the symbol <code>⊕</code>.  
+    It uses symmetric encryption — both the encryption function E() and the decryption function G() use the same key.
+    </p>
+    
+    <h2>XOR Properties</h2>
+    <ul>
+      <li>A ⊕ B = B ⊕ A (Order does not matter, Commutative)</li>
+      <li>(A ⊕ B) ⊕ C = A ⊕ (B ⊕ C) (Associative)</li>
+      <li>A ⊕ 0 = A (Identity Element)</li>
+      <li>A ⊕ A = 0<sub>n</sub> (Self‑Inversing)</li>
+      <li>A ⊕ Ā = 1<sub>n</sub> (where n is the length of A, and Ā is the bitwise complement of A)</li>
+      <li>0 ⊕ 0 = 0, 1 ⊕ 0 = 1, 1 ⊕ 1 = 0 (Bitwise Operation)</li>
+      <li>If C ⊕ B = A, then B = C ⊕ A, and C = A ⊕ B</li>
+    </ul>
+    
+    <p><strong>Flag ⊕ Secret Key = Ciphertext</strong><br>
+    <strong>Ciphertext ⊕ Secret Key = Flag</strong></p>
+    
+    <h2>Python</h2>
+    <pre>
+    pip install pwntools
+    from pwntools import xor
+    xor(BYTES, BYTES)  # XORs bytes together
+    bytes.fromhex(HEX) # convert Hex to Bytes
+    </pre>
+    
+    <h2>Partial XORing</h2>
+    <p>
+    Flag{???} ⊕ SecretKey = Ciphertext  
+    The secret key used is not known, but with the Ciphertext and flag format, it can be partially revealed.
+    </p>
+    <p>
+    Ciphertext ⊕ flag format = Part of the secret key
+    </p>
+    
+    <h2>One‑Time Pad</h2>
+    <p>
+    One‑Time Pad has Perfect Secrecy and hence Perfect Indistinguishability.  
+    m₁, c, sk ∈ {0,1}<sup>l</sup> where l is the security parameter (possible type of input, key, and output for this encryption system — in this case binary, where l is the length of the message).
+    </p>
+    <ul>
+      <li>G(1<sup>l</sup>) chooses sk at random from {0,1}<sup>l</sup></li>
+      <li>E(sk, m) = sk ⊕ m = c</li>
+      <li>D(sk, c) = sk ⊕ c = m</li>
+    </ul>
+    <p>
+    This encryption scheme achieves Perfect Secrecy because there is only one key for a message that matches a predetermined ciphertext, and vice versa, making all messages and ciphertexts equally likely.
+    </p>
+    
+    <h2>Advanced XOR Obfuscation</h2>
+    <ul>
+      <li>Use multi‑byte keys to remove repetitiveness</li>
+      <li>Vary byte key lengths</li>
+      <li>Dynamic Key Generation (key generated from part of the plaintext)</li>
+      <li>Use other mathematical algorithms</li>
+    </ul>
+    
+    <h2>Vulnerabilities</h2>
+    <h3>Key Reuse Vulnerability</h3>
+    <pre>
+    M₁ ⊕ K = C₁
+    M₂ ⊕ K = C₂
+    M₁ ⊕ M₂ = C₁ ⊕ C₂
+    </pre>
+    <p>This can reveal the plaintext through statistical analysis or a known‑plaintext attack.</p>
+    
+    <h3>Known‑Plaintext Attack</h3>
+    <pre>
+    M ⊕ K = C
+    </pre>
+    <p>Knowing part of the plaintext can reveal part of the key, increasing vulnerability for future attacks.</p>
+    
+    <h3>Bit Flipping Attack (Linear Separability)</h3>
+    <p>
+    By flipping bits in a ciphertext, you can manipulate the message because XOR is linear — any change in one variable changes the others.
+    </p>
+    
+    <h3>Poor Randomness of Key</h3>
+    <p>
+    If the key is not truly random, statistical analysis can crack the key and recover the message.
+    </p>
+    
+    <h3>Single‑Byte XOR Vulnerability</h3>
+    <p>
+    Frequency analysis can reveal the key byte.
+    </p>
+    
+    <h3>Frequency Analysis</h3>
+    <p>
+    XOR is not safe from frequency analysis when the key is reused, due to poor diffusion properties.
+    </p>
+    
+    <h3>TLS 1.0 CBC Mode</h3>
+    <p>
+    This cryptographic protocol can be attacked by exploiting XOR’s vulnerabilities via chosen‑plaintext and BEAST attacks, targeting the XOR of IVs and message data.
+    </p>
+    
+    <h3>Advanced Obfuscation Attack</h3>
+    <ul>
+      <li>Statistical and differential analysis to detect repeated samples or weak points</li>
+      <li>Known‑plaintext / chosen‑plaintext attacks</li>
+      <li>Binary structure recognition (e.g., JPG header FFD8)</li>
+    </ul>
+    </div>
+  </div>
+</body>
+</html>
