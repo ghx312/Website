@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cryptography - ghx312's Website</title>
+  <meta charset="UTF-8">
+  <!-- Import Fredoka font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Go up one folder to get style.css -->
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* Extra centering for this page */
+    .content {
+      max-width: 900px;   /* keeps it from stretching too wide */
+      margin: 0 auto;     /* centers horizontally */
+      padding: 40px;      /* breathing room from edges */
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+
+    <!-- 🔹 Navigation Header -->
+    <div class="header">
+      <a class="tab" href="main.html">Introduction</a>
+      <a class="tab" href="resources.html">Resources</a>
+      <a class="tab" href="writeups.html">Writeups</a>
+      <a class="tab" href="misc.html">Miscellaneous</a>
+      <a class="tab" href="about.html">About</a>
+    </div>
+
+    <!-- 🔹 Page Content -->
+    <div class="content">
+      <h2>Diffusion / Avalanche Effect / Key Sensitivity</h2>
+      <p>
+        The ability to spread the influence of any plaintext bit over multiple ciphertext bits in order to reduce the statistical correlation between a bit in ciphertext and a bit in plaintext, and the ability to drastically change the ciphertext when a small change has been made to the plaintext or key.
+      </p>
+      <p>
+        <strong>Example:</strong> XOR has terrible diffusion, as changing 1 bit in the plaintext changes 1 bit in the ciphertext (assuming the key is the same), which can lead to the adversary being able to use frequency analysis to figure out your key.
+      </p>
+
+      <h2>Confusion</h2>
+      <p>
+        The ability to hide the relationship between the ciphertext and the plaintext as much as possible by using complex substitutions and complex mathematical algorithms (e.g., Discrete Log), in order to prevent the adversary from finding out the key from ciphertext–plaintext pairs.
+      </p>
+
+      <h2>Correctness</h2>
+      <p>
+        The property that the ciphertext returns the plaintext when the ciphertext is decrypted using the right key.
+      </p>
+
+      <h2>Security / Perfect Secrecy</h2>
+      <p>
+        The ciphertext reveals nothing useful to the adversary.
+      </p>
+
+      <h2>Computational Indistinguishability</h2>
+      <p>
+        When the adversary knows the ciphertext, there is no bias towards a certain plaintext that the adversary can find within their computational abilities.
+      </p>
+
+      <h2>Uniform Key Usage Distribution / Shannon’s Key Length Theorem</h2>
+      <p>
+        There must be at least an equal number of keys to every message, and keys must be at least equal in length to the message, for a system to have perfect secrecy.
+      </p>
+
+      <h2>Resistance to Cryptanalysis</h2>
+      <p>
+        Being able to resist cryptanalysis to a reasonable degree.
+      </p>
+
+      <h2>Entropy</h2>
+      <p>
+        The randomness of data collected by a generator (G()) in order to produce keys that ensure the highest amount of randomness in the ciphertext from the plaintext. This data can come from the current time, mouse movements, and even quantum states. High entropy makes the system less susceptible to cryptanalysis. Low entropy can cause the system to be vulnerable to attacks as keys become predictable.
+      </p>
+
+      <h2>Parallelizability</h2>
+      <p>
+        Mostly used in block ciphers, where multiple blocks can be encrypted or decrypted at once, increasing efficiency (e.g., ECB, CTR).
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
