@@ -1,19 +1,21 @@
 html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Fredoka', sans-serif; /* Apply Fredoka font */
-      background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExenB0Njh3MG4wam56ajBkZnhzcWp5aG4wYzk4amphZzdvN3lzdzFzZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WoD6JZnwap6s8/giphy.gif') no-repeat center center fixed;
-      background-size: cover;
-      color: #00ffcc;
-      height: 100%;
-    }
-
-    .overlay {
-        min-height: 100%;
-        background-size: cover; /* if using an image */
+        margin: 0;
+        padding: 0;
+        font-family: 'Fredoka', sans-serif;
+        background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExenB0Njh3MG4wam56ajBkZnhzcWp5aG4wYzk4amphZzdvN3lzdzFzZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WoD6JZnwap6s8/giphy.gif') no-repeat center center fixed;
+        background-size: cover;
+        color: #00ffcc;
+        height: 100%;
+      }
+      
+      .overlay {
+        min-height: 100vh; /* always at least full viewport height */
+        background-color: rgba(0, 0, 0, 0.5); /* black overlay at 50% opacity */
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-    }
+      }
+
 
     /* Horizontal Header */
     .header {
