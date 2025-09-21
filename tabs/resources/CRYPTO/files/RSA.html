@@ -117,14 +117,50 @@
     <p>Special case: when s = 1, the algorithm simplifies significantly (x ≡ a<sup>(p+1)/4</sup> (mod p) if p ≡ 3 (mod 4)).</p>
     
     <h2>Chinese Remainder Theorem</h2>
-    <p>Applies when the moduli are pairwise coprime.</p>
+    <p>This can only be used when all linear mods are coprime.</p>
+    
     <pre>
     x ≡ y₁ (mod a)
     x ≡ y₂ (mod b)
     x ≡ y₃ (mod c)
     </pre>
-    <p>If gcd(a, b, c) = 1, then a unique solution exists modulo a·b·c:</p>
-    <p>x ≡ b·c·d₁ + a·c·d₂ + a·b·d₃ (mod a·b·c), where each d<sub>n</sub> is chosen so that the corresponding term ≡ 1 mod its modulus (and ≡ 0 mod the others). If x already matches the congruences, then each d<sub>n</sub> ≡ 1 for its modulus.</p>
+    
+    <p>If gcd(a, b, c) = 1,</p>
+    
+    <pre>
+    x ≡ b * c * d₁ + a * c * d₂ + a * b * d₃ (mod a * b * c)
+    </pre>
+    
+    <p>
+    <b>Step 1:</b>  
+    x ≡ b * c (mod a), multiply b * c by an integer d₁ such that:
+    </p>
+    
+    <pre>
+    x ≡ b * c * d₁ (mod a)
+    </pre>
+    
+    <p>
+    <b>Step 2:</b>  
+    x ≡ a * c (mod b), multiply a * c by an integer d₂ such that:
+    </p>
+    
+    <pre>
+    x ≡ a * c * d₂ (mod b)
+    </pre>
+    
+    <p>
+    <b>Step 3:</b>  
+    x ≡ a * b (mod c), multiply a * b by an integer d₃ such that:
+    </p>
+    
+    <pre>
+    x ≡ a * b * d₃ (mod c)
+    </pre>
+    
+    <p>
+    If x is congruent with each corresponding part, then d<sub>n</sub> ≡ 1 for that modulus.
+    </p>
     
     <h2>Euler’s Totient Function</h2>
     <p>φ(m) = |{ x ∈ {1,…,m} : gcd(x, m) = 1 }|</p>
