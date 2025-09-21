@@ -32,29 +32,31 @@
     <div class="content">
     <h2>Modular Arithmetic Manipulation</h2>
     <ul>
-      <li>(a + x<sub>b</sub> + x) mod p</li>
-      <li>(a − x<sub>b</sub> − x) mod p</li>
-      <li>(a × x<sub>b</sub> × x) mod p</li>
-      <li>(a<sup>x<sub>b</sub></sup> × x) mod p</li>
-      <li>(a + b) mod p = (a mod p) + (b mod p)</li>
-      <li>(a × b) mod p = (a mod p) × (b mod p)</li>
-      <li>(a × d<sub>b</sub> × d) mod p = a × b mod (p / gcd(d, p))</li>
+      <li>If a ≡ b (mod p), then:
+        <ul>
+          <li>a + x ≡ b + x (mod p)</li>
+          <li>a − x ≡ b − x (mod p)</li>
+          <li>a · x ≡ b · x (mod p)</li>
+          <li>a<sup>x</sup> ≡ b<sup>x</sup> (mod p)</li>
+        </ul>
+      </li>
+      <li>(a + b) mod p ≡ (a mod p + b mod p) mod p</li>
+      <li>(a · b) mod p ≡ (a mod p · b mod p) mod p</li>
+      <li>If a · d ≡ b · d (mod p), then a ≡ b (mod p / gcd(d, p))</li>
     </ul>
     
     <h2>Greatest Common Divisor</h2>
-    <p>gcd(a, b) = 1 → a and b are coprime (relatively prime).  
-    Used to find inverses in the Chinese Remainder Theorem.</p>
+    <p>gcd(a, b) = 1 → a and b are coprime (relatively prime).<br>
+    Used to find inverses for the Chinese Remainder Theorem.</p>
     
     <h2>Euclid’s Algorithm</h2>
-    <p>a = k × b + c<sub>1</sub>, where c<sub>1</sub> &lt; b  
-    b = k × c<sub>1</sub> + c<sub>2</sub>, where c<sub>2</sub> &lt; c<sub>1</sub></p>
-    <p>Continue until c<sub>n</sub> = k × c<sub>n+1</sub> + 0.  
-    The previous remainder is gcd(a, b).</p>
+    <p>a = k·b + c<sub>1</sub>, where c<sub>1</sub> &lt; b<br>
+    b = k·c<sub>1</sub> + c<sub>2</sub>, where c<sub>2</sub> &lt; c<sub>1</sub></p>
+    <p>Continue until c<sub>n</sub> = k·c<sub>n+1</sub> + 0. The previous remainder is gcd(a, b).</p>
     
     <h2>Extended Euclid’s Algorithm</h2>
-    <p>a × u + b × v = gcd(a, b)</p>
-    <p>Rearrange to express gcd as a combination of a and b.  
-    Can be used to find inverses modulo p by substituting u as the value to invert and v as the modulus.</p>
+    <p>a·u + b·v = gcd(a, b)</p>
+    <p>Rearrange to express gcd as an integer combination of a and b. This also finds modular inverses: set u to the inverse of a modulo p when gcd(a, p) = 1.</p>
     <pre>
     Example:
     13 = 2(5) + 3
@@ -66,160 +68,135 @@
     1 = 3 − 1(2)
     1 = 2(3) − 5
     1 = 2(13) − 4(5)
-    13 × 2 + 5(−4) = 1
+    13 · 2 + 5(−4) = 1
     </pre>
     
     <h2>Fermat’s Little Theorem</h2>
-    <p>If p is prime and a &lt; p:</p>
+    <p>If p is prime and a &lt; p, then:</p>
     <ul>
       <li>a<sup>p−1</sup> ≡ 1 (mod p)</li>
       <li>a<sup>p−2</sup> ≡ a<sup>−1</sup> (mod p)</li>
     </ul>
-    <p>F<sub>p</sub> = {0, 1, 2, …, p−1}  
-    For every g ∈ F<sub>p</sub>, there exists a multiplicative inverse d such that g × d ≡ 1 (mod p).</p>
+    <p>F<sub>p</sub> = {0, 1, 2, …, p−1}. For every g ∈ F<sub>p</sub>, there exists d such that g·d ≡ 1 (mod p) (the multiplicative inverse).<br>
+    We can use a<sup>p−2</sup> ≡ a<sup>−1</sup> (mod p) to find inverses when p is prime.</p>
     
     <h2>Quadratic Residue</h2>
-    <p>If a has a solution y in F<sub>p</sub> such that a × y² ≡ something (mod p), then y is a quadratic residue; otherwise, it’s a non‑residue.</p>
+    <p>y ∈ F<sub>p</sub> is a quadratic residue (QR) if ∃x with x² ≡ y (mod p). Otherwise, y is a quadratic non‑residue (QNR).</p>
     <ul>
-      <li>QR × QR = QR</li>
-      <li>QR × QNR = QNR</li>
-      <li>QNR × QNR = QR</li>
+      <li>QR · QR = QR</li>
+      <li>QR · QNR = QNR</li>
+      <li>QNR · QNR = QR</li>
     </ul>
     
     <h2>Legendre Symbol</h2>
-    <p>For prime p: (a/p) = a<sup>(p−1)/2</sup> mod p</p>
+    <p>For prime p, the Legendre symbol (a/p) satisfies: (a/p) ≡ a<sup>(p−1)/2</sup> (mod p).</p>
     <ul>
-      <li>(a/p) = 1 → a is a quadratic residue</li>
-      <li>(a/p) = −1 → a is a quadratic non‑residue</li>
+      <li>(a/p) = 1 → a is a quadratic residue (a ≢ 0 mod p)</li>
+      <li>(a/p) = −1 → a is a quadratic non‑residue (mod p)</li>
       <li>(a/p) = 0 → a ≡ 0 (mod p)</li>
     </ul>
     
     <h2>Tonelli–Shanks Algorithm</h2>
+    <p>Used to find square roots of a modulo p (odd prime), when a is a quadratic residue.</p>
     <ol>
-      <li>Write p−1 = q × 2<sup>s</sup> by factoring out powers of 2.</li>
-      <li>Find z, a quadratic non‑residue: (z/p) = −1.</li>
-      <li>Set c = z<sup>q</sup> mod p, r = a<sup>(q+1)/2</sup> mod p, t = a<sup>q</sup> mod p, m = s.</li>
-      <li>Loop until t = 1:
+      <li>Write p − 1 = q · 2<sup>s</sup> by factoring out powers of 2.</li>
+      <li>Find z a QNR: (z/p) = −1.</li>
+      <li>Initialize: c = z<sup>q</sup> mod p, r = a<sup>(q+1)/2</sup> mod p, t = a<sup>q</sup> mod p, m = s.</li>
+      <li>Repeat until t ≡ 1 (mod p):
         <ul>
-          <li>Find smallest i (0 &lt; i &lt; m) such that t<sup>2<sup>i</sup></sup> = 1.</li>
+          <li>Find the smallest i with 0 &lt; i &lt; m such that t<sup>2<sup>i</sup></sup> ≡ 1 (mod p).</li>
           <li>b = c<sup>2<sup>m−i−1</sup></sup> mod p</li>
-          <li>r = r × b mod p</li>
-          <li>t = t × b² mod p</li>
+          <li>r = r · b mod p</li>
+          <li>t = t · b² mod p</li>
           <li>c = b² mod p</li>
           <li>m = i</li>
         </ul>
       </li>
     </ol>
-    <p>When t = 1, r is the square root of a mod p.</p>
+    <p>When t ≡ 1 (mod p), r is a square root of a modulo p.</p>
+    <p>Special case: when s = 1, the algorithm simplifies significantly (x ≡ a<sup>(p+1)/4</sup> (mod p) if p ≡ 3 (mod 4)).</p>
     
     <h2>Chinese Remainder Theorem</h2>
-    <p>For pairwise coprime moduli a, b, c:</p>
+    <p>Applies when the moduli are pairwise coprime.</p>
     <pre>
     x ≡ y₁ (mod a)
     x ≡ y₂ (mod b)
     x ≡ y₃ (mod c)
     </pre>
-    <p>Solution: x = b×c×d₁ + a×c×d₂ + a×b×d₃ (mod a×b×c),  
-    where each d<sub>n</sub> is chosen so that the term ≡ 1 mod its modulus.</p>
+    <p>If gcd(a, b, c) = 1, then a unique solution exists modulo a·b·c:</p>
+    <p>x ≡ b·c·d₁ + a·c·d₂ + a·b·d₃ (mod a·b·c), where each d<sub>n</sub> is chosen so that the corresponding term ≡ 1 mod its modulus (and ≡ 0 mod the others). If x already matches the congruences, then each d<sub>n</sub> ≡ 1 for its modulus.</p>
     
     <h2>Euler’s Totient Function</h2>
-    <p>φ(p) = number of x in F<sub>p</sub> with gcd(p, x) = 1</p>
+    <p>φ(m) = |{ x ∈ {1,…,m} : gcd(x, m) = 1 }|</p>
     <ul>
-      <li>φ(pq) = (p−1)(q−1)</li>
-      <li>If gcd(b, m) = 1 → b<sup>φ(m)</sup> ≡ 1 (mod m)</li>
+      <li>φ(pq) = (p − 1)(q − 1) for distinct primes p, q</li>
+      <li>If gcd(b, m) = 1, then b<sup>φ(m)</sup> ≡ 1 (mod m)</li>
     </ul>
     
     <h2>Binomial Expansion (mod N)</h2>
-    <p>If N = pq:</p>
+    <p>When N = p·q (primes):</p>
     <pre>
-    (p + q)<sup>e</sup> mod N = p<sup>e</sup> + q<sup>e</sup> mod N
+    (p + q)<sup>e</sup> mod N ≡ p<sup>e</sup> + q<sup>e</sup> (mod N)
     </pre>
-    <p>pq terms vanish as they are multiples of N.</p>
+    <p>Cross terms are multiples of N and vanish modulo N.</p>
     
     <h2>Classic RSA</h2>
     <ol>
-      <li>Choose large primes p, q.</li>
-      <li>N = pq, φ(N) = (p−1)(q−1).</li>
-      <li>Choose e: 1 &lt; e &lt; φ(N), gcd(e, φ(N)) = 1.</li>
-      <li>Find d: e×d ≡ 1 (mod φ(N)).</li>
+      <li>Choose primes p, q of similar bit‑length.</li>
+      <li>N = p·q; φ(N) = (p − 1)(q − 1).</li>
+      <li>Choose public exponent e with 1 &lt; e &lt; φ(N) and gcd(e, φ(N)) = 1.</li>
+      <li>Compute private exponent d with e·d ≡ 1 (mod φ(N)).</li>
     </ol>
-    <p>Encrypt: C = M<sup>e</sup> mod N  
-    Decrypt: M = C<sup>d</sup> mod N</p>
+    <p>Encrypt: C ≡ M<sup>e</sup> (mod N), with 0 ≤ M &lt; N<br>
+    Decrypt: M ≡ C<sup>d</sup> (mod N)</p>
     
-    <h2>Modular Bionmials</h2>
-    <h3>RSA Decoder</h3>
-    <p>N = p × q</p>
+    <h3>RSA G.E.D</h3>
     <p>
-      c<sub>1</sub> = (a<sub>1</sub>·p + b<sub>1</sub>·q)<sup>e<sub>1</sub></sup> mod N<br>
-      c<sub>2</sub> = (a<sub>2</sub>·p + b<sub>2</sub>·q)<sup>e<sub>2</sub></sup> mod N
+    G: 1 &lt; e &lt; φ(N), gcd(e, φ(N)) = 1, and d·e ≡ 1 (mod φ(N))<br>
+    E: C ≡ M<sup>e</sup> (mod N), 0 ≤ M &lt; N<br>
+    D: M ≡ C<sup>d</sup> (mod N)
     </p>
-    <p>
-      q = gcd( (a<sub>2</sub> − e<sub>1</sub>e<sub>2</sub> mod N) · (c<sub>2</sub><sup>e<sub>1</sub></sup> mod N) − (a<sub>1</sub> − e<sub>1</sub>e<sub>2</sub> mod N) · (c<sub>1</sub><sup>e<sub>2</sub></sup> mod N), N )<br>
-      p = gcd( (b<sub>2</sub> − e<sub>1</sub>e<sub>2</sub> mod N) · (c<sub>2</sub><sup>e<sub>1</sub></sup> mod N) − (b<sub>1</sub> − e<sub>1</sub>e<sub>2</sub> mod N) · (c<sub>1</sub><sup>e<sub>2</sub></sup> mod N), N )
-    </p>
-    <p>or simply p = N / q</p>
     
-    <h2>Quadratic Equations</h2>
-    <p>
-      φ(N) = (p − 1)(q − 1) = pq − (p + q) + 1 = N − (p + q) + 1, hence<br>
-      p + q = N − φ(N) + 1
-    </p>
-    <p>Let p and q be the roots of a quadratic:</p>
-    <p>
-      (x − p)(x − q) = 0 ⇒ x² − (p + q)x + pq = 0
-    </p>
-    <p>
-      Substitute pq = N and p + q = N − φ(N) + 1:
-    </p>
-    <p>
-      x² − (N − φ(N) + 1)x + N = 0
-    </p>
-    <p>
-      If the value of φ(N) is correct, the roots are integers, giving the factors of N.
-    </p>
+    <h3>To break RSA</h3>
+    <p>It suffices to find φ(N). Since φ(N) = (p − 1)(q − 1), factoring N gives φ(N) and thus d from e·d ≡ 1 (mod φ(N)).</p>
+    
+    <h2>Modular Binomials — RSA Decoder</h2>
+    <pre>
+    N = p · q
+    c₁ ≡ (a₁·p + b₁·q)<sup>e₁</sup> (mod N)
+    c₂ ≡ (a₂·p + b₂·q)<sup>e₂</sup> (mod N)
+    
+    q = gcd( (a₂ − e₁e₂ mod N) · (c₂<sup>e₁</sup> mod N) − (a₁ − e₁e₂ mod N) · (c₁<sup>e₂</sup> mod N), N )
+    p = gcd( (b₂ − e₁e₂ mod N) · (c₂<sup>e₁</sup> mod N) − (b₁ − e₁e₂ mod N) · (c₁<sup>e₂</sup> mod N), N )
+    
+    or p = N / q
+    </pre>
+    
+    <h2>Quadratic Equations (factoring via φ(N))</h2>
+    <p>φ(N) = (p − 1)(q − 1) = pq − (p + q) + 1 = N − (p + q) + 1 ⇒ p + q = N − φ(N) + 1</p>
+    <p>Let p, q be roots of (x − p)(x − q) = 0 ⇒ x² − (p + q)x + pq = 0</p>
+    <p>Substitute pq = N, p + q = N − φ(N) + 1:</p>
+    <p>x² − (N − φ(N) + 1)x + N = 0</p>
+    <p>If φ(N) is correct, the roots are integers, yielding p and q.</p>
     
     <h2>Simple Continued Fraction / Wiener’s Attack</h2>
-    <p>
-      φ(N) = (p − 1)(q − 1) = N − (p + q) + 1 ≈ N (since p + q ≪ pq)
-    </p>
-    <p>
-      Since k &gt; 0 and k ∈ ℤ for ed = k·φ(N) + 1, we have:
-    </p>
-    <p>
-      ed − k·φ(N) = 1
-    </p>
-    <p>
-      Divide both sides by d·φ(N):
-    </p>
-    <p>
-      e/φ(N) − k/d = 1/(d·φ(N))
-    </p>
-    <p>
-      Since d·φ(N) is large, 1/(d·φ(N)) ≈ 0, hence:
-    </p>
-    <p>
-      e/φ(N) ≈ k/d
-    </p>
-    <p>
-      Additional constraints used to filter candidates:
-    </p>
+    <p>φ(N) = (p − 1)(q − 1) = N − (p + q) + 1, and typically p + q ≪ pq, so φ(N) ≈ N.</p>
+    <p>Since k &gt; 0 and k ∈ ℤ for e·d = k·φ(N) + 1, we have:</p>
+    <p>e·d − k·φ(N) = 1</p>
+    <p>Divide by d·φ(N): e/φ(N) − k/d = 1/(d·φ(N)) ≈ 0 ⇒ e/φ(N) ≈ k/d</p>
     <ul>
-      <li>ed ≡ 1 (mod φ(N))</li>
-      <li>φ(N) ≡ 0 (mod 2) ⇒ d should be odd; if d is even, skip</li>
-      <li>If (ed − 1)/k ∉ ℤ, skip that k</li>
+      <li>Constraint: e·d ≡ 1 (mod φ(N))</li>
+      <li>φ(N) is even ⇒ d must be odd (skip even d)</li>
+      <li>If (e·d − 1)/k ∉ ℤ, skip that k</li>
     </ul>
-    <p>
-      Use Euclid’s Algorithm/continued fractions to find convergents k/d satisfying the above; then use the quadratic method to verify φ(N) yields integer roots for p and q.
-    </p>
+    <p>Use continued fractions for e/N (or e/φ(N) approximation) to get convergents k/d that satisfy the constraints. Verify via the quadratic relation that φ(N) gives integer roots.</p>
     
     <h3>Wiener’s success conditions</h3>
-    <p>
-      Typically succeeds if q &lt; p &lt; 2q and d &lt; N<sup>1/4</sup> / 3.<br>
-      It can still succeed in some cases even if d &gt; N<sup>1/4</sup> / 3.
-    </p>
+    <p>Works when q &lt; p &lt; 2q and d &lt; N<sup>1/4</sup>/3. It may still work in some cases even if d &gt; N<sup>1/4</sup>/3.</p>
     
     <h2>Wilson’s Theorem</h2>
-    <p>(p−1)! ≡ −1 (mod p) if p is prime.</p>
+    <p>(p − 1)! ≡ −1 (mod p) for prime p.<br>
+    Inefficient for large p; Miller–Rabin is typically used for primality testing instead.</p>
     </div>
   </div>
 </body>
