@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cryptography</title>
+  <meta charset="UTF-8">
+  <!-- Import Fredoka font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Go up one folder to get style.css -->
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+  <div class="overlay">
 
+    <!-- 🔹 Navigation Header -->
+    <div class="header">
+      <a class="tab" href="main.html">Introduction</a>
+      <a class="tab" href="resources.html">Resources</a>
+      <a class="tab" href="writeups.html">Writeups</a>
+      <a class="tab" href="misc.html">Miscellaneous</a>
+      <a class="tab" href="about.html">About</a>
+    </div>
+
+    <!-- 🔹 Page Content -->
+    <div class="content">
+    <h2>Modular Arithmetic Manipulation</h2>
+    <ul>
+      <li>(a + x<sub>b</sub> + x) mod p</li>
+      <li>(a − x<sub>b</sub> − x) mod p</li>
+      <li>(a × x<sub>b</sub> × x) mod p</li>
+      <li>(a<sup>x<sub>b</sub></sup> × x) mod p</li>
+      <li>(a + b) mod p = (a mod p) + (b mod p)</li>
+      <li>(a × b) mod p = (a mod p) × (b mod p)</li>
+      <li>(a × d<sub>b</sub> × d) mod p = a × b mod (p / gcd(d, p))</li>
+    </ul>
+    
+    <h2>Greatest Common Divisor</h2>
+    <p>gcd(a, b) = 1 → a and b are coprime (relatively prime).  
+    Used to find inverses in the Chinese Remainder Theorem.</p>
+    
+    <h2>Euclid’s Algorithm</h2>
+    <p>a = k × b + c<sub>1</sub>, where c<sub>1</sub> &lt; b  
+    b = k × c<sub>1</sub> + c<sub>2</sub>, where c<sub>2</sub> &lt; c<sub>1</sub></p>
+    <p>Continue until c<sub>n</sub> = k × c<sub>n+1</sub> + 0.  
+    The previous remainder is gcd(a, b).</p>
+    
+    <h2>Extended Euclid’s Algorithm</h2>
+    <p>a × u + b × v = gcd(a, b)</p>
+    <p>Rearrange to express gcd as a combination of a and b.  
+    Can be used to find inverses modulo p by substituting u as the value to invert and v as the modulus.</p>
+    <pre>
+    Example:
+    13 = 2(5) + 3
+    5 = 1(3) + 2
+    3 = 1(2) + 1
+    2 = 2(1) + 0
+    gcd(13, 5) = 1
+    
+    1 = 3 − 1(2)
+    1 = 2(3) − 5
+    1 = 2(13) − 4(5)
+    13 × 2 + 5(−4) = 1
+    </pre>
+    
+    <h2>Fermat’s Little Theorem</h2>
+    <p>If p is prime and a &lt; p:</p>
+    <ul>
+      <li>a<sup>p−1</sup> ≡ 1 (mod p)</li>
+      <li>a<sup>p−2</sup> ≡ a<sup>−1</sup> (mod p)</li>
+    </ul>
+    <p>F<sub>p</sub> = {0, 1, 2, …, p−1}  
+    For every g ∈ F<sub>p</sub>, there exists a multiplicative inverse d such that g × d ≡ 1 (mod p).</p>
+    
+    <h2>Quadratic Residue</h2>
+    <p>If a has a solution y in F<sub>p</sub> such that a × y² ≡ something (mod p), then y is a quadratic residue; otherwise, it’s a non‑residue.</p>
+    <ul>
+      <li>QR × QR = QR</li>
+      <li>QR × QNR = QNR</li>
+      <li>QNR × QNR = QR</li>
+    </ul>
+    
+    <h2>Legendre Symbol</h2>
+    <p>For prime p: (a/p) = a<sup>(p−1)/2</sup> mod p</p>
+    <ul>
+      <li>(a/p) = 1 → a is a quadratic residue</li>
+      <li>(a/p) = −1 → a is a quadratic non‑residue</li>
+      <li>(a/p) = 0 → a ≡ 0 (mod p)</li>
+    </ul>
+    
+    <h2>Tonelli–Shanks Algorithm</h2>
+    <ol>
+      <li>Write p−1 = q × 2<sup>s</sup> by factoring out powers of 2.</li>
+      <li>Find z, a quadratic non‑residue: (z/p) = −1.</li>
+      <li>Set c = z<sup>q</sup> mod p, r = a<sup>(q+1)/2</sup> mod p, t = a<sup>q</sup> mod p, m = s.</li>
+      <li>Loop until t = 1:
+        <ul>
+          <li>Find smallest i (0 &lt; i &lt; m) such that t<sup>2<sup>i</sup></sup> = 1.</li>
+          <li>b = c<sup>2<sup>m−i−1</sup></sup> mod p</li>
+          <li>r = r × b mod p</li>
+          <li>t = t × b² mod p</li>
+          <li>c = b² mod p</li>
+          <li>m = i</li>
+        </ul>
+      </li>
+    </ol>
+    <p>When t = 1, r is the square root of a mod p.</p>
+    
+    <h2>Chinese Remainder Theorem</h2>
+    <p>For pairwise coprime moduli a, b, c:</p>
+    <pre>
+    x ≡ y₁ (mod a)
+    x ≡ y₂ (mod b)
+    x ≡ y₃ (mod c)
+    </pre>
+    <p>Solution: x = b×c×d₁ + a×c×d₂ + a×b×d₃ (mod a×b×c),  
+    where each d<sub>n</sub> is chosen so that the term ≡ 1 mod its modulus.</p>
+    
+    <h2>Euler’s Totient Function</h2>
+    <p>φ(p) = number of x in F<sub>p</sub> with gcd(p, x) = 1</p>
+    <ul>
+      <li>φ(pq) = (p−1)(q−1)</li>
+      <li>If gcd(b, m) = 1 → b<sup>φ(m)</sup> ≡ 1 (mod m)</li>
+    </ul>
+    
+    <h2>Binomial Expansion (mod N)</h2>
+    <p>If N = pq:</p>
+    <pre>
+    (p + q)<sup>e</sup> mod N = p<sup>e</sup> + q<sup>e</sup> mod N
+    </pre>
+    <p>pq terms vanish as they are multiples of N.</p>
+    
+    <h2>Classic RSA</h2>
+    <ol>
+      <li>Choose large primes p, q.</li>
+      <li>N = pq, φ(N) = (p−1)(q−1).</li>
+      <li>Choose e: 1 &lt; e &lt; φ(N), gcd(e, φ(N)) = 1.</li>
+      <li>Find d: e×d ≡ 1 (mod φ(N)).</li>
+    </ol>
+    <p>Encrypt: C = M<sup>e</sup> mod N  
+    Decrypt: M = C<sup>d</sup> mod N</p>
+    
+    <h2>RSA Cracking Methods</h2>
+    <ul>
+      <li>Factor N to get p, q → φ(N) → d.</li>
+      <li>Use GCD attacks, quadratic equations, Wiener's attack, etc.</li>
+    </ul>
+    
+    <h2>Wilson’s Theorem</h2>
+    <p>(p−1)! ≡ −1 (mod p) if p is prime.</p>
+    </div>
+  </div>
+</body>
+</html>
